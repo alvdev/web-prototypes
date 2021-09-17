@@ -1,0 +1,375 @@
+@font-face {
+    font-family: pixelate;
+    font-weight: normal;
+    src: url(../fonts/pixelate.ttf);
+}
+
+/**
+ *
+ * Reset styles
+ *
+ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+img {
+    display: block;
+    outline: none
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #CDCDCD;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: hsl(69, 87%, 48%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #A6A6A6;
+}
+
+/**
+ *
+ * Block comment
+ *
+ */
+
+body {
+    display: grid;
+    font: 1rem / 1.5rem Arial;
+    gap: 2rem;
+    grid-template-areas:
+        "aside nav"
+        "aside main"
+        "aside footer"
+    ;
+    grid-template-columns: 2fr 4fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+}
+
+/* Login Page */
+
+body.login {
+    grid-template-areas:
+        "nav"
+        "main"
+        "footer"
+    ;
+    grid-template-columns: 1fr;
+}
+
+body.login>* {
+    margin: 0 auto;
+}
+
+/* End Login Page */
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 .5rem;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+tbody tr {
+    background-color: #f1f1f1;
+}
+
+tbody tr td {
+    padding: .5rem 1rem;
+}
+
+td:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+td:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+thead {
+    background-color: white;
+    box-shadow: 0 10px 10px white;
+    position: sticky;
+    top: 0;
+}
+
+th {
+    padding: 0 0 .5rem 1rem;
+    text-align-last: left;
+}
+
+a {
+    color: royalblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+input[type="checkbox"] {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+select {
+    border: 2px solid #bbb;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+}
+
+.btn {
+    align-items: center;
+    align-self: stretch;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    font-size: .75rem;
+    justify-content: center;
+    letter-spacing: 1px;
+    padding: .25rem .75rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btn.blue {
+    background-color: royalblue;
+    border-color: royalblue;
+    color: #fff;
+}
+
+.btn.submit {
+    background-color: black;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    width: 100%;
+}
+
+.btn:hover {
+    opacity: .8;
+}
+
+.btn-group {
+    display: flex;
+    gap: .5rem;
+}
+
+.btn-group>* {
+    position: relative;
+}
+
+/**
+ *
+ * Content styles
+ *
+ */
+
+aside {
+    background: url(../img/real-estate.webp) no-repeat 0 top / contain;
+    grid-area: aside;
+    height: 100vh;
+}
+
+.container {
+    background: linear-gradient(transparent, hsl(69, 87%, 71%) 175px);
+    height: 100%;
+    overflow-y: scroll;
+    padding: 175px 2vw 2rem;
+    /* Firefox scrollbar fix */
+    scrollbar-color: hsl(69, 87%, 48%) transparent;
+    scrollbar-width: thin;
+}
+
+aside .btn-group input[type="radio"] {
+    background-color: red;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+aside .type .wrap,
+aside .location .wrap {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+aside .wrap>* {
+    align-items: center;
+    display: flex;
+    gap: .5rem;
+}
+
+.btn-group input[type="radio"]+label {
+    background-color: hsl(69, 87%, 71%);
+}
+
+.btn-group input[type="radio"]:checked+label {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px royalblue;
+    color: royalblue;
+    font-weight: bold;
+}
+
+aside form>*:not(:first-child) {
+    margin-top: 2.5rem;
+}
+
+aside .btn-group>* {
+    width: 100%;
+}
+
+nav {
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    gap: 1rem;
+    grid-area: nav;
+    justify-content: space-between;
+    padding: 2vw 0;
+    width: 96%;
+}
+
+.logo {
+    font-family: pixelate;
+    font-size: 2.2rem;
+}
+
+.logo a {
+    color: black;
+}
+
+.locale {
+    display: flex;
+    gap: .25rem;
+}
+
+.locale button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    grid-area: main;
+    height: 100%;
+    overflow: auto;
+    width: 96%;
+
+    /* Firefox scrollbar */
+    scrollbar-color: #cdcdcd#f0f0f0;
+    scrollbar-width: thin;
+}
+
+footer {
+    align-items: center;
+    border-top: 1px solid #ccc;
+    display: flex;
+    grid-area: footer;
+    justify-content: space-between;
+    padding: 2vw 0;
+    width: 96%;
+}
+
+footer span {
+    color: crimson;
+}
+
+/**
+ *
+ * Media Queries
+ * Mobile Last... Only this time ;) 
+ *
+ */
+
+@media screen and (max-width: 639px) {
+    body {
+        gap: 0;
+        grid-template-areas:
+            "nav"
+            "aside"
+            "main"
+            "footer"
+        ;
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: overlay;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    aside,
+    .container {
+        height: auto;
+    }
+
+    .container {
+        overflow: auto;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    main {
+        padding: 0 2%;
+        width: 100%;
+    }
+
+    nav,
+    main,
+    footer {
+        padding: 2rem 2%;
+        width: 100%
+    }
+}
