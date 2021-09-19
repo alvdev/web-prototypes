@@ -12,16 +12,16 @@ $provinces = $obj->showFilters('provincias');
     <div class="btn-group">
         <div>
             <input type="radio" name="operation" id="operation" value="sale">
-            <label for="sale" class="btn">Sale</label>
+            <label for="sale" class="btn"><?= $lang['SALE'] ?></label>
         </div>
         <div>
             <input type="radio" name="operation" id="rent" value="rent">
-            <label for="rent" class="btn">Rent</label>
+            <label for="rent" class="btn"><?= $lang['RENT'] ?></label>
         </div>
     </div>
 
     <div class="type">
-        <h2>Type</h2>
+        <h2><?= $lang['PROPERTY_TYPE'] ?></h2>
         <div class="wrap">
             <?php foreach ($types as $type) : ?>
                 <div>
@@ -33,7 +33,7 @@ $provinces = $obj->showFilters('provincias');
     </div>
 
     <div class="location">
-        <h2>Province</h2>
+        <h2><?= $lang['PROVINCE'] ?></h2>
         <div class="wrap">
             <?php foreach ($provinces as $province) : ?>
                 <div>
@@ -45,7 +45,7 @@ $provinces = $obj->showFilters('provincias');
     </div>
 
     <div class="wrap">
-        <label for="limit">Limit</label>
+        <label for="limit"><?= $lang['RESULTS_NUM'] ?></label>
         <select name="limit" id="limit">
             <option value="10">10</option>
             <option value="25" selected>25</option>
@@ -55,7 +55,7 @@ $provinces = $obj->showFilters('provincias');
     </div>
 
     <div class="price">
-        <h2>Max. price</h2>
+        <h2><?= $lang['MAX_PRICE'] ?></h2>
         <div class="wrap">
             <label for="price"></label>
             <input name="price" type="range" id="price" value="200000" min="0" max="1000000">
@@ -63,5 +63,5 @@ $provinces = $obj->showFilters('provincias');
         </div>
     </div>
 
-    <button class="btn submit">Filter results</button>
+    <button class="btn submit"><?= $lang['FILTER_RESULTS'] ?></button>
 </form>

@@ -28,8 +28,8 @@
         </form>
 
         <div class="btn-group">
-            <a href="#" class="btn blue">Add property</a>
-            <a href="?page=login" class="btn">Login</a>
+            <a href="#" class="btn blue"><?= $lang['ADD_PROPERTY'] ?></a>
+            <a href="?page=login" class="btn"><?= $lang['LOGIN'] ?></a>
         </div>
     </nav>
 
