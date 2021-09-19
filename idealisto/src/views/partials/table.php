@@ -5,7 +5,14 @@ use app\controllers\QueryController;
 $list = new QueryController();
 $properties = $list->getProperties();
 
-$columnsTitle = ['Ref', 'Sale/Rent', 'Type', 'Province', 'Area', 'Price'];
+$columnsTitle = [
+    $lang['ID'],
+    $lang['OPERATION'],
+    $lang['PROPERTY_TYPE'],
+    $lang['PROVINCE'],
+    $lang['AREA'],
+    $lang['PRICE']
+];
 $columnTitleCount = count($columnsTitle);
 
 ?>
