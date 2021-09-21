@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use config\Database;
 use PDO;
+use app\models\QueryModel;
 
 class QueryController
 {
