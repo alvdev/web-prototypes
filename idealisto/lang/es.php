@@ -24,3 +24,7 @@ $lang['OPERATION'] = 'Operación';
 $lang['AREA'] = 'Area';
 $lang['DEV'] = 'Desarrollado con';
 $lang['BY'] = 'por';
+
+// Login page
+$lang['USERNAME'] = 'Usuario';
+$lang['PASSWORD'] = 'Contraseña';
