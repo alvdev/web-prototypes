@@ -18,6 +18,9 @@ class PageController
         if (method_exists($this, $actionName)) {
             $this->$actionName();
         } else {
+            /**
+             * TODO: 404 page
+             */
             include VIEW . '404.php';
         }
     }

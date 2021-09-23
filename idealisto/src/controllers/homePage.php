@@ -16,9 +16,5 @@ class HomePageController extends PageController
 
         $template = new Template();
         $template->view('home', $variables);
-
-        //include_once VIEW . 'home.php';
     }
 }
-
-//include_once VIEW . 'home.php';

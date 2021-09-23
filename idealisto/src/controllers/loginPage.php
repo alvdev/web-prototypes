@@ -4,11 +4,18 @@ namespace app\controllers;
 
 class LoginPageController extends PageController
 {
-    /* TODO: Add login view template */
-    function defaultAction()
+    public function defaultAction()
     {
-        echo 'This is working login page';
-        include_once VIEW . 'login.php';
+        // fetch the SEO
+        // get the page data
+        // $title
+        // $content
+
+        $variables['title'] = 'Login page';
+        $variables['content'] = 'Welcome to the login page';
+
+        $template = new Template();
+        $template->view('login', $variables);
     }
 }
 
