@@ -1,5 +1,6 @@
 <?php
 
+use app\controllers\PageController;
 use app\controllers\HomePageController;
 use app\controllers\LoginPageController;
 use app\controllers\Template;
@@ -12,6 +13,7 @@ $page = $_GET['page'] ?? $_POST['page'] ?? 'home';
 $action = $_GET['action'] ?? $_POST['action'] ?? 'default';
 
 if ($page === 'login') {
+    include_once CTRL . 'LoginPage.php';
     $loginPageController = new LoginPageController();
     $loginPageController->runAction($action);
 } else {
