@@ -22,15 +22,19 @@
     <nav>
         <div class="logo"><a href="./">idealisto</a></div>
 
-        <form action="./" class="locale" method="post">
+        <form action="#" class="locale" method="post">
             <button name="lang" value="es"><img src=" ./public/img/locales/es24.png" alt=""></button>
             <button name="lang" value="en"><img src=" ./public/img/locales/en24.png" alt=""></button>
         </form>
 
         <div class="btn-group">
             <a href="#" class="btn blue"><?= $lang['ADD_PROPERTY'] ?></a>
-            <a href="?page=login" class="btn"><?= $lang['LOGIN'] ?></a>
+            <a href="?page=login" id="loginbtn" class="btn">
+                <span><?= $lang['LOGIN'] ?></span>
+            </a>
         </div>
+
+        <div id="login-form"></div>
     </nav>
 
     <main>
