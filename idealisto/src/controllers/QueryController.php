@@ -23,8 +23,8 @@ class QueryController
 
     public function showFilters($all)
     {
-        $conn = new QueryModel();
-        $results = $conn->getFilters($all);
+        $query = new QueryModel();
+        $results = $query->getFilters($all);
 
         return $results;
     }

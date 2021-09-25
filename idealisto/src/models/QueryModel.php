@@ -4,7 +4,6 @@ namespace app\models;
 
 use config\Database;
 use PDO;
-use app\controllers\QueryController;
 
 class QueryModel
 {
@@ -25,12 +24,14 @@ class QueryModel
         $limit,
         $price
     ) {
+        // Convert type array to string and set "piso" by default
         if ($type) {
             $type = "'" . implode('\', \'', $type) . "'";
         } else {
             $type = "'" . 'piso' . "'";
         }
 
+        // Convert province array to string and set "lleida" by default
         if ($province) {
             $province = "'" . implode('\', \'', $province) . "'";
         } else {
