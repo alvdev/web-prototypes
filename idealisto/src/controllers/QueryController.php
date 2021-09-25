@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use config\Database;
-use PDO;
 use app\models\QueryModel;
 
 class QueryController
@@ -23,43 +21,24 @@ class QueryController
         $this->price = $_GET['price'] ?? $_POST['price'] ?? 200000;
     }
 
-    public function showFilters($from)
+    public function showFilters($all)
     {
-        $sql = "SELECT * FROM {$from}";
-        $db = new Database();
-        $conn = $db->connect()->query($sql);
-        $results = $conn->fetchAll(PDO::FETCH_ASSOC);
+        $conn = new QueryModel();
+        $results = $conn->getFilters($all);
 
         return $results;
     }
 
-    public function getProperties()
+    public function showProperties()
     {
-        if ($this->type) {
-            $types = "'" . implode('\', \'', $this->type) . "'";
-        } else {
-            $types = "'" . 'piso' . "'";
-        }
-
-        if ($this->province) {
-            $provinces = "'" . implode('\', \'', $this->province) . "'";
-        } else {
-            $provinces = "'" . 'lleida' . "'";
-        }
-
-        $sql =
-            "SELECT * FROM operaciones, pisos, provincias, tipos
-             WHERE op_operacion LIKE '{$this->operation}'
-             AND tipo_nombre IN ({$types})
-             AND prov_nombre IN ({$provinces})
-             AND piso_precio_venta < $this->price
-             ORDER BY piso_precio_venta ASC
-             LIMIT {$this->limit}
-            ";
-
-        $db = new Database();
-        $query = $db->connect()->query($sql);
-        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        $properties = new QueryModel();
+        $results = $properties->getProperties(
+            $this->operation,
+            $this->type,
+            $this->province,
+            $this->limit,
+            $this->price
+        );
 
         return $results;
     }

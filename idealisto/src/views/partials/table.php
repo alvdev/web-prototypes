@@ -3,7 +3,7 @@
 use app\controllers\QueryController;
 
 $list = new QueryController();
-$properties = $list->getProperties();
+$properties = $list->showProperties();
 
 $columnsTitle = [
     $lang['ID'],
