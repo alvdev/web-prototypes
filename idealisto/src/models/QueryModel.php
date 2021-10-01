@@ -11,8 +11,8 @@ class QueryModel
     {
         $sql = "SELECT * FROM $all";
         $db = new Database();
-        $conn = $db->connect()->query($sql);
-        $results = $conn->fetchAll(PDO::FETCH_ASSOC);
+        $query = $db->connect()->query($sql);
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
