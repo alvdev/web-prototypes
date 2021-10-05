@@ -1,9 +1,7 @@
 <?php
 
-use app\controllers\PageController;
 use app\controllers\HomePageController;
 use app\controllers\LoginPageController;
-use app\controllers\Template;
 
 require_once 'vendor/autoload.php';
 require_once 'config/config.php';
