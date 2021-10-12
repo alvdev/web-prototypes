@@ -275,7 +275,7 @@ aside .btn-group > * {
     width: 100%;
 }
 
-nav {
+nav:not(.dataTable-pagination) {
     align-items: center;
     border-bottom: 1px solid #ccc;
     display: flex;
