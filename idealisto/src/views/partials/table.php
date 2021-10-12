@@ -39,6 +39,7 @@ $columnTitleCount = count($columnsTitle);
     </tbody>
 </table>
 
+<link rel="stylesheet" href="public/css/datatable.css">
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 
 <script>
