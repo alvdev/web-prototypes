@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idealisto Real Estate</title>
     <meta name="description" content="Real Estate CMS for realtors">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link defer rel="stylesheet" href="public/css/datatable.css">
+    <link defer rel="stylesheet" href="public/css/global.css">
     <script src="./public/js/script.js" defer></script>
 </head>
 
@@ -28,7 +29,7 @@
         </form>
 
         <div class="btn-group">
-            <a href="#" class="btn blue"><?= $lang['ADD_PROPERTY'] ?></a>
+            <a href="?page=login" class="btn blue"><?= $lang['ADD_PROPERTY'] ?></a>
             <a href="?page=login" id="loginbtn" class="btn">
                 <span><?= $lang['LOGIN'] ?></span>
             </a>
