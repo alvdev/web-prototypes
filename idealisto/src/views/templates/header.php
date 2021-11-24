@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idealisto Real Estate</title>
     <meta name="description" content="Real Estate CMS for realtors">
-    <link defer rel="stylesheet" href="public/css/datatable.css">
+    
     <link defer rel="stylesheet" href="public/css/global.css">
     <script src="./public/js/script.js" defer></script>
 </head>
