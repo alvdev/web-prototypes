@@ -1,0 +1,6 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /web-prototypes/idealisto/
+RewriteRule    ^([^/\.]+)/([^/\.]+)$    /web-prototypes/idealisto/index.php?page=$1    [NC,L]
+</IfModule>
