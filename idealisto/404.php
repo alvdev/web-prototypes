@@ -1,1 +1,3 @@
-This is 404 page not found
+<?php 
+
+echo 'This is 404 page not found'
