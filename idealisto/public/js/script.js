@@ -1,7 +1,7 @@
 // Set and show selected price on input type range
 price.addEventListener('change', setPrice);
 
-function setPrice() {
+const setPrice = () => {
   const priceInput = document.querySelector('.price input');
   const priceOutput = document.querySelector('.price output');
 
@@ -17,7 +17,7 @@ fetch('?page=login')
     loginForm = data.substring(data.indexOf('<main>') + 8, data.indexOf('</main>'))
   )
 
-loginbtn.addEventListener('click', (e) => {
+loginbtn.addEventListener('click', e => {
   e.preventDefault();
   const loginPlace = document.querySelector('#login-form');
   loginPlace.innerHTML = loginForm;
