@@ -1,3 +1,3 @@
 <?php 
 
-echo 'This is 404 page not found'
+echo '<h1>This is 405 page not found</h1>';
