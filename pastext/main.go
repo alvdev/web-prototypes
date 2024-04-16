@@ -22,9 +22,17 @@ func textView(w http.ResponseWriter, r *http.Request) {
 func textCreate(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		w.Header().Set("Allow", http.MethodPost)
+		w.Header().Add("Cache-Control", "public, max-age=31536000")
 		// w.WriteHeader(405)
 		// w.Write([]byte("<h1>Method not allowed...</h1>"))
 		http.Error(w, "Method not allowed...", http.StatusMethodNotAllowed) // Send plain text
+
+		cacheControlValues := w.Header().Values("Cache-Control")
+		var valuesStr string
+		for _, value := range cacheControlValues {
+			valuesStr = valuesStr + " " + value
+		}
+		w.Write([]byte(valuesStr))
 		return
 	}
 
