@@ -1,8 +1,9 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"net/http"
+	"strconv"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -16,6 +17,13 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 func textView(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.Atoi(r.URL.Query().Get("id"))
+	if err != nil || id < 1 {
+		http.NotFound(w, r)
+		return
+	}
+
+	fmt.Fprintf(w, "Display a specific text with ID %d", id)
 	w.Write([]byte("<h1>View text page</h1>"))
 }
 
@@ -37,15 +45,4 @@ func textCreate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Write([]byte("<h1>Create text page</h1>"))
-}
-
-func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", home)
-	mux.HandleFunc("/text/view", textView)
-	mux.HandleFunc("/text/create", textCreate)
-
-	log.Print("Starting server on :8080")
-	err := http.ListenAndServe(":8080", mux)
-	log.Fatal(err)
 }
