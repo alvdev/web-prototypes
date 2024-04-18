@@ -7,6 +7,8 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
+	fileServer := http.FileServer(http.Dir("./ui/dist/"))
+	mux.Handle("/dist/", http.StripPrefix("/dist/", fileServer))
 	mux.HandleFunc("/", home)
 	mux.HandleFunc("/text/view", textView)
 	mux.HandleFunc("/text/create", textCreate)
