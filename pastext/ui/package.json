@@ -1,0 +1,19 @@
+{
+  "name": "pastext",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tailwindcss": "^3.4.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "plugins": [
+    "prettier-plugin-go-template"
+  ],
+  "scripts": {
+    "watch": "bunx tailwindcss -i ./static/css/main.css -o ./dist/css/main.css --watch",
+    "build": "bunx tailwindcss -i ./static/css/main.css -o ./dist/css/main.min.css --minify"
+  }
+}
