@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"html/template"
+	"log"
 	"net/http"
 	"strconv"
 )
@@ -13,6 +15,25 @@ func home(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("<h1>Error 404: Page not found</h1>"))
 		return
 	}
+
+	files := []string{
+		"ui/html/base.tmpl",
+		"ui/html/pages/home.tmpl",
+	}
+
+	ts, err := template.ParseFiles(files...)
+	if err != nil {
+		log.Print(err.Error())
+		http.Error(w, "Internal server error", 500)
+		return
+	}
+
+	err = ts.ExecuteTemplate(w, "base", nil)
+	if err != nil {
+		log.Print(err.Error())
+		http.Error(w, "Internal server error", 500)
+	}
+
 	w.Write([]byte("<h1>Hello from Pastext</h1>"))
 }
 
