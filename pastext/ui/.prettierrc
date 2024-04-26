@@ -1,5 +1,8 @@
 {
   "tabWidth": 4,
   "useTabs": false,
-  "plugins": ["prettier-plugin-go-template"]
+  "plugins": [
+    "prettier-plugin-go-template"
+  ],
+  "htmlWhitespaceSensitivity": "ignore"
 }
