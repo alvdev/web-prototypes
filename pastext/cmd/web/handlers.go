@@ -34,8 +34,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 		log.Print(err.Error())
 		http.Error(w, "Internal server error", 500)
 	}
-
-	w.Write([]byte("<h1>Hello from Pastext</h1>"))
 }
 
 func textView(w http.ResponseWriter, r *http.Request) {

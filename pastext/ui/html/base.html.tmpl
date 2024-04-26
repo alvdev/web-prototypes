@@ -11,15 +11,20 @@
             <script src="../dist/js/main.js" defer></script>
         </head>
 
-        <body>
+        <body class="flex flex-col">
             <header>
-                <h1><a href="/">Snippetbox</a></h1>
+                <h1 class="p-8 font-bold text-center uppercase">Pastext</h1>
+                {{ template "nav" . }}
             </header>
-            {{ template "nav" . }}
-            <main>
+
+            <main class="container h-full mt-8">
                 {{ template "main" . }}
             </main>
-            <footer>Powered by <a href="https://golang.org/">Go</a></footer>
+
+            <footer class="container py-8 mt-8">
+                Powered by
+                <a href="https://golang.org/">Go</a>
+            </footer>
         </body>
     </html>
 {{ end }}

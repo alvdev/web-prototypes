@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html,
+    body {
+        @apply h-full;
+    }
+    h1 {
+        @apply text-2xl;
+    }
+    h2 {
+        @apply text-xl [&+*]:mt-4;
+    }
+    a {
+        @apply font-semibold text-red-500 transition-all hover:text-black;
+    }
+}
