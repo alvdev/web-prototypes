@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-func home(w http.ResponseWriter, r *http.Request) {
+func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		// Default 404 error
 		// http.NotFound(w, r)
@@ -24,7 +24,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 
 	ts, err := template.ParseFiles(files...)
 	if err != nil {
-		log.Print(err.Error())
+		app.errorLog.Print(err.Error())
 		http.Error(w, "Internal server error", 500)
 		return
 	}
@@ -36,7 +36,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func textView(w http.ResponseWriter, r *http.Request) {
+func (app *application) textView(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.URL.Query().Get("id"))
 	if err != nil || id < 1 {
 		http.NotFound(w, r)
@@ -47,7 +47,7 @@ func textView(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("<h1>View text page</h1>"))
 }
 
-func textCreate(w http.ResponseWriter, r *http.Request) {
+func (app *application) textCreate(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		w.Header().Set("Allow", http.MethodPost)
 		w.Header().Add("Cache-Control", "public, max-age=31536000")

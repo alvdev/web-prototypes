@@ -7,9 +7,19 @@ import (
 	"os"
 )
 
+type application struct {
+	errorLog *log.Logger
+	infoLog  *log.Logger
+}
+
 func main() {
-	logInfo := log.New(os.Stdout, "INFO:\t", log.Ldate|log.Ltime)
-	logErr := log.New(os.Stderr, "ERROR:\t", log.Ldate|log.Ltime|log.Lshortfile)
+	infoLog := log.New(os.Stdout, "INFO:\t", log.Ldate|log.Ltime)
+	errorLog := log.New(os.Stderr, "ERROR:\t", log.Ldate|log.Ltime|log.Lshortfile)
+
+	app := &application{
+		infoLog:  infoLog,
+		errorLog: errorLog,
+	}
 
 	addr := flag.String("addr", ":8080", "Listen HTTP address")
 	flag.Parse()
@@ -18,17 +28,17 @@ func main() {
 	fileServer := http.FileServer(http.Dir("./ui/dist/"))
 
 	mux.Handle("/dist/", http.StripPrefix("/dist/", fileServer))
-	mux.HandleFunc("/", home)
-	mux.HandleFunc("/text/view", textView)
-	mux.HandleFunc("/text/create", textCreate)
+	mux.HandleFunc("/", app.home)
+	mux.HandleFunc("/text/view", app.textView)
+	mux.HandleFunc("/text/create", app.textCreate)
 
 	srv := &http.Server{
 		Addr:     *addr,
-		ErrorLog: logErr,
+		ErrorLog: errorLog,
 		Handler:  mux,
 	}
 
-	logInfo.Printf("Starting server on %v", *addr)
+	infoLog.Printf("Starting server on %v", *addr)
 	err := srv.ListenAndServe()
-	logErr.Fatal(err)
+	errorLog.Fatal(err)
 }
